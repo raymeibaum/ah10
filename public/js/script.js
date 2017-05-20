@@ -15,10 +15,14 @@ $(function() {
 		}
 		$startRecord.on('click', function(e) {
 			recorder.start(1000);
+			$startRecord.toggle();
+			$stopRecord.toggle();
 		})
 
 		$stopRecord.on('click', function(e) {
 			recorder.stop();
+			$startRecord.toggle();
+			$stopRecord.toggle();
 		})
 	})
 });
@@ -27,13 +31,13 @@ function createAudioElement(blobUrl) {
     const downloadEl = document.createElement('a');
     downloadEl.style = 'display: block';
     downloadEl.innerHTML = 'download';
-    downloadEl.download = 'audio.mp3';
+    downloadEl.download = 'audio.webm';
     downloadEl.href = blobUrl;
     const audioEl = document.createElement('audio');
     audioEl.controls = true;
     const sourceEl = document.createElement('source');
     sourceEl.src = blobUrl;
-    sourceEl.type = 'audio/mpeg';
+    sourceEl.type = 'audio/webm';
     audioEl.appendChild(sourceEl);
     document.body.appendChild(audioEl);
     document.body.appendChild(downloadEl);
