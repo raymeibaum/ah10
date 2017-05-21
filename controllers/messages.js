@@ -16,7 +16,7 @@ router.get('/', function indexAction(req, res) {
 })
 
 router.post('/', function postAction(req, res) {
-	
+
 })
 
 module.exports = router;

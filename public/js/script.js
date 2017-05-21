@@ -46,3 +46,11 @@ function playAudio(event) {
 function submitWorldlyMessage(event) {
 	event.preventDefault();
 }
+
+function getAllMessages() {
+	$.get('/api/messages', function(res){
+	})
+}
+
+
+
