@@ -25,6 +25,7 @@
     </nav>
 
     <div class="container" id="container">
+<<<<<<< HEAD
         <div class="header">
             <div class="overlay">
                 <div class="crossfade">
@@ -34,6 +35,8 @@
                 </div>
             </div>
         </div>
+=======
+>>>>>>> master
         <div class="carousel slide" data-ride="carousel" id="myCarousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -401,7 +404,11 @@
 					  <option value="Welsh">Welsh</option>
 					  <option value="Xhosa">Xhosa</option>
 					</select>
+<<<<<<< HEAD
                     </div>
+=======
+         </div>
+>>>>>>> master
 			  </div>
 				<div class="record-controls">
 					<i class="fa fa-5x fa-microphone" id="start" aria-hidden="true"></i>
@@ -410,20 +417,47 @@
 					<button class="btn btn-success" type="submit" id="submit">Submit</button>
 					<button class="btn btn-primary" id="play" disabled="true">Play</button>
 				</div>
+				<p class="text-success"id="post-success"></p>
 			</form>
 		</div>
 		<audio
 			src=""
-			id="audio"
+			id="recorded-audio"
 			type="audio/webm"
 			controls="false">
 		</audio>
+<<<<<<< HEAD
         <div class='cards-section'>
             <div class='card card-1'>
             </div>
             <div class='card card-2'>
             </div>
         </div>
+=======
+		</div>
+	</div>
+
+<!-- Cards section -->
+<div class='messages'>
+<div ng-controller="MessagesController as messages">
+	<h3>Browse {{messages.messages.length}} people's stories</h3>
+	<br>
+		<div class='card-area col-md-3' ng-repeat="message in messages.messages">
+			<div class='card'>
+			<img onclick="playOrPauseMessage()" class='image' src="https://cdn0.iconfinder.com/data/icons/users-2/512/e35-512.png">
+			<br>
+			<br>
+			Country: {{message.country}}
+			<br>
+			Language: {{message.language}}
+			<audio id='sound1' src='https://s3.amazonaws.com/worldlymessage/9mJbcgtsn0M0_128.mp3' preload='auto'></audio>
+			</div>
+	</div>
+</div>
+</div>
+
+
+>>>>>>> master
 		<script src="https://use.fontawesome.com/32eed15fc6.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

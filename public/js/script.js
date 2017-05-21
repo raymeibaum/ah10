@@ -36,14 +36,16 @@ $(function() {
 	})
 
 	function updateAudioElement(blobUrl) {
-	    const audio = document.getElementById('audio');;
+	    const audio = document.getElementById('recorded-audio');
 	    audio.src = blobUrl;
 	}
 
 	function playAudio(event) {
 		event.preventDefault();
-		document.getElementById("audio").play();
+		document.getElementById("recorded-audio").play();
 	}
+
+
 	function submitWorldlyMessage(event) {
 		event.preventDefault();
 		// console.log(blob);
@@ -58,7 +60,18 @@ $(function() {
 		};
 
 		$.post(url, data, function(response) {
-			console.log(response);
+			$('p#post-success').text('Message was posted successfully.')
 		})
 	}
 });
+
+function playOrPauseMessage() {
+		console.log('message triggered')
+		var audio = document.getElementById("sound1");
+		if (audio.paused) {
+			audio.play();
+		}
+		else {
+			audio.pause();
+		}
+	}
