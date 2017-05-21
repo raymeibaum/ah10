@@ -32,6 +32,7 @@ audio {
 	padding: 0px;
 	margin: 0px;
 	width: auto;
+	position: relative;
 }
 
 .carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
@@ -40,6 +41,18 @@ audio {
 	background-position: center;
 	background-size:cover;
 	background-repeat: no-repeat;
+}
+
+.header .homeHeader {
+	position: absolute;
+	z-index: 1;
+    color: #fff;
+    margin: 10em 5em;
+    width: 40%;
+    line-height: 100%;
+	letter-spacing: .5em;
+	background-color: rgba(0,0,0,0.3);
+	text-align: center;
 }
 
 body {
