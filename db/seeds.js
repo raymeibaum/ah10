@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/worldmessage');
+require('dotenv').config();
+
+mongoose.connect(process.env.MONGODB_URI);
 
 
 var Message = require("../models/message");
