@@ -7,9 +7,9 @@ const messagesController = require('./controllers/messages.js');
 
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI);
-
 app.use('/', express.static('public'))
 app.use('/api/messages', messagesController);
+
 
 const db = mongoose.connection;
 db.on('error', function(err){
