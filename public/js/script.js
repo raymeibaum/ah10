@@ -1,44 +1,48 @@
 $(function() {
 	var $startRecord = $('#start'),
-	 		$stopRecord = $('#stop');
+			$playButton = $('#play'),
+			$form = $('form');
+
+	var messageUrl;
 
 	navigator.mediaDevices.getUserMedia({audio: true}).then(function(stream) {
-		const chunks = [];
+		var chunks = [];
 		const recorder = new MediaRecorder(stream);
 		recorder.ondataavailable = function(e) {
 			chunks.push(e.data);
 
 			if (recorder.state == 'inactive') {
 				const blob = new Blob(chunks, {type: 'audio/webm'});
-				createAudioElement(URL.createObjectURL(blob));
+				messageUrl = URL.createObjectURL(blob);
+				console.log(messageUrl);
+				updateAudioElement(messageUrl);
+				$playButton.attr("disabled", false);
+				$playButton.on('click', playAudio);
+				$form.on('submit', submitWorldlyMessage);
 			}
 		}
-		$startRecord.on('click', function(e) {
-			recorder.start(1000);
-			$startRecord.toggle();
-			$stopRecord.toggle();
-		})
-
-		$stopRecord.on('click', function(e) {
-			recorder.stop();
-			$startRecord.toggle();
-			$stopRecord.toggle();
-		})
+		$startRecord.on('mousedown mouseup', function(e) {
+			e.stopPropagation();
+			if (e.type === "mousedown") {
+				recorder.start(1000);
+				$startRecord.addClass('active');
+			} else if (e.type === "mouseup") {
+				recorder.stop();
+				$startRecord.removeClass('active');
+			}
+		});
 	})
 });
 
-function createAudioElement(blobUrl) {
-    const downloadEl = document.createElement('a');
-    downloadEl.style = 'display: block';
-    downloadEl.innerHTML = 'download';
-    downloadEl.download = 'audio.webm';
-    downloadEl.href = blobUrl;
-    const audioEl = document.createElement('audio');
-    audioEl.controls = true;
-    const sourceEl = document.createElement('source');
-    sourceEl.src = blobUrl;
-    sourceEl.type = 'audio/webm';
-    audioEl.appendChild(sourceEl);
-    document.body.appendChild(audioEl);
-    document.body.appendChild(downloadEl);
+function updateAudioElement(blobUrl) {
+    const audio = document.getElementById('audio');;
+    audio.src = blobUrl;
+}
+
+function playAudio(event) {
+	event.preventDefault();
+	document.getElementById("audio").play();
+}
+function submitWorldlyMessage(event) {
+	event.preventDefault();
 }
