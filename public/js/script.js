@@ -36,13 +36,13 @@ $(function() {
 	})
 
 	function updateAudioElement(blobUrl) {
-	    const audio = document.getElementById('audio');;
+	    const audio = document.getElementById('recorded-audio');
 	    audio.src = blobUrl;
 	}
 
 	function playAudio(event) {
 		event.preventDefault();
-		document.getElementById("audio").play();
+		document.getElementById("recorded-audio").play();
 	}
 
 
@@ -60,7 +60,7 @@ $(function() {
 		};
 
 		$.post(url, data, function(response) {
-			console.log(response);
+			$('p#post-success').text('Message was posted successfully.')
 		})
 	}
 });
