@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>World Message</title>
+    <title>Share a Story</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" href="/css/styles.css">
         <link href="https://fonts.googleapis.com/css?family=Khula|Roboto" rel="stylesheet">
@@ -18,6 +18,7 @@
             </div>
 
             <ul class="nav navbar-right">
+            <img class='alexa-logo' src="/images/alexa-image.png">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
                 <!-- <li><a href="#">Page 2</a></li> -->
@@ -62,10 +63,10 @@
 
 		<div class="container text-center record-section">
 			<h1>Record your own personal story to share with the world.</h1>
-
+            <div class='center form-section'>
 			<form>
 				<div class="form-group">
-			    <label for="country">Country</label>
+			    <label for="country">Your Country</label>
 					<select class="form-control" name="country" id="country">
 						<option value="AFG">Afghanistan</option>
 						<option value="ALA">Åland Islands</option>
@@ -319,7 +320,7 @@
 					</select>
 			  </div>
 			  <div class="form-group">
-			    <label for="Language">Language</label>
+			    <label for="Language">Your Language</label>
 					<select class="form-control" name="language" id="language">
 					  <option value="Afrikanns">Afrikanns</option>
 					  <option value="Albanian">Albanian</option>
@@ -394,6 +395,7 @@
 					  <option value="Welsh">Welsh</option>
 					  <option value="Xhosa">Xhosa</option>
 					</select>
+                    </div>
 			  </div>
 				<div class="record-controls">
 					<i class="fa fa-5x fa-microphone" id="start" aria-hidden="true"></i>
