@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
-const Message = require('../models/message.js');
+const Message = require('../models/Message');
 
 router.get('/', function indexAction(req, res) {
 	Message
