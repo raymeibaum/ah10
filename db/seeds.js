@@ -24,4 +24,29 @@ message1.save(function(err) {
   console.log('message created!');
 });
 
+
+var message2 = new Message ({
+  message: "Heres a message",
+  country: "United States",
+  language: "English"
+});
+
+message2.save(function(err) {
+  if (err) console.log(err);
+
+  console.log('message created!');
+});
+
+var message3 = new Message ({
+  message: "Another message",
+  country: "United States",
+  language: "English"
+});
+
+message3.save(function(err) {
+  if (err) console.log(err);
+
+  console.log('message created!');
+});
+
 mongoose.connection.close();
