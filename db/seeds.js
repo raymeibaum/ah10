@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/worldy_message');
+require('dotenv').config();
+
+mongoose.connect(process.env.MONGODB_URI);
 
 
 var Message = require("../models/message");
@@ -21,6 +23,7 @@ message1.save(function(err) {
 
   console.log('message created!');
 });
+
 
 var message2 = new Message ({
   message: "Heres a message",
@@ -45,3 +48,5 @@ message3.save(function(err) {
 
   console.log('message created!');
 });
+
+mongoose.connection.close();
