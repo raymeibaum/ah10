@@ -1,9 +1,12 @@
 $(function() {
 	var $startRecord = $('#start'),
 			$playButton = $('#play'),
+			$submitButton = $('button#submit'),
+			$language = $('select#language'),
+			$country = $('select#country');
 			$form = $('form');
 
-	var messageUrl;
+	var blob;
 
 	navigator.mediaDevices.getUserMedia({audio: true}).then(function(stream) {
 		var chunks = [];
@@ -12,9 +15,8 @@ $(function() {
 			chunks.push(e.data);
 
 			if (recorder.state == 'inactive') {
-				const blob = new Blob(chunks, {type: 'audio/webm'});
-				messageUrl = URL.createObjectURL(blob);
-				console.log(messageUrl);
+				blob = new Blob(chunks, {type: 'audio/webm'});
+				const messageUrl = URL.createObjectURL(blob);
 				updateAudioElement(messageUrl);
 				$playButton.attr("disabled", false);
 				$playButton.on('click', playAudio);
@@ -32,25 +34,37 @@ $(function() {
 			}
 		});
 	})
+
+	function updateAudioElement(blobUrl) {
+	    const audio = document.getElementById('audio');;
+	    audio.src = blobUrl;
+	}
+
+	function playAudio(event) {
+		event.preventDefault();
+		document.getElementById("audio").play();
+	}
+	function submitWorldlyMessage(event) {
+		event.preventDefault();
+		// console.log(blob);
+		const country = event.target[0].value;
+		const language = event.target[1].value
+		const url = '/api/messages';
+
+		const fd = new FormData();
+		fd.append('country', country);
+		fd.append('language', language);
+		fd.append('message', blob, 'soundFile.webm');
+
+		console.log(fd);
+
+		$.post({
+			url: url,
+			data: fd,
+			processData: false,
+    	contentType: false
+		}).done(function(response) {
+			console.log(response);
+		})
+	}
 });
-
-function updateAudioElement(blobUrl) {
-    const audio = document.getElementById('audio');;
-    audio.src = blobUrl;
-}
-
-function playAudio(event) {
-	event.preventDefault();
-	document.getElementById("audio").play();
-}
-function submitWorldlyMessage(event) {
-	event.preventDefault();
-}
-
-function getAllMessages() {
-	$.get('/api/messages', function(res){
-	})
-}
-
-
-

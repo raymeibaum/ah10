@@ -17,6 +17,9 @@ router.get('/', function indexAction(req, res) {
 
 router.post('/', function postAction(req, res) {
 
-})
+	console.log(req.body);
+	// const message = new Message(req.body);
+  // message.save();
+});
 
 module.exports = router;
