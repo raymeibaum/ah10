@@ -41,3 +41,56 @@ audio {
 	background-size:cover;
 	background-repeat: no-repeat;
 }
+
+body {
+  font-family: 'Khula', sans-serif;
+}
+
+.record-section {
+  margin-top: 50px;
+}
+
+.cards-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.card {
+  width: 300px;
+  height: 350px;
+  background: blue;
+  margin: 20px;
+}
+
+.card-2 {
+  background: green;
+}
+
+.logo {
+  height: 90px;
+}
+
+.form-group {
+  width: 300px;
+  margin: 10px;
+}
+
+.center {
+  text-align: center;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.alexa-logo {
+  width: 100px;
+  margin-top: 20px;
+}
