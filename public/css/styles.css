@@ -46,6 +46,33 @@ audio {
 
 }
 
-.container {
+body {
+  font-family: 'Khula', sans-serif;
+}
 
+.record-section {
+  margin-top: 50px;
+}
+
+.cards-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.card {
+  width: 300px;
+  height: 350px;
+  background: blue;
+  margin: 20px;
+}
+
+.card-2 {
+  background: green;
+}
+
+.logo {
+  height: 90px;
 }
