@@ -13,9 +13,9 @@ const db = mongoose.connection;
 mongoose.connect('mongodb://localhost/worldy_message');
 
 
-app.use('/', express.static('public'))
+app.use('/', indexController);
 app.use('/api/messages', messagesController);
-
+app.get
 
 const db = mongoose.connection;
 
