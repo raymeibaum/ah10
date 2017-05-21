@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/worldy_message');
+mongoose.connect('mongodb://localhost/worldmessage');
 
 
 var Message = require("../models/message");
@@ -21,3 +21,5 @@ message1.save(function(err) {
 
   console.log('message created!');
 });
+
+mongoose.connection.close();

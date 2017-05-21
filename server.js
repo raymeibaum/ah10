@@ -12,9 +12,6 @@ const messagesController = require('./controllers/messages.js');
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI);
 
-// mongoose.connect(process.env.MONGODB_URI);
-mongoose.connect('mongodb://localhost/worldy_message');
-
 app.use('/', express.static('public'))
 app.use('/api/messages', messagesController);
 
