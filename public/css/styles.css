@@ -1,8 +1,13 @@
-.record-button {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.record-controls {
+	margin: 50px auto;
+	text-align: center;
 }
-#stop {
+.active {
+	color: rgba(0, 0, 0, 0.5);
+}
+.buttons {
+	text-align: center;
+}
+audio {
 	display: none;
 }
