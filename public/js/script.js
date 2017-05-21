@@ -51,19 +51,13 @@ $(function() {
 		const language = event.target[1].value
 		const url = '/api/messages';
 
-		const fd = new FormData();
-		fd.append('country', country);
-		fd.append('language', language);
-		fd.append('message', blob, 'soundFile.webm');
+		const data = {
+			country: country,
+			language: language,
+			message: 'messageAudioFile'
+		};
 
-		console.log(fd);
-
-		$.post({
-			url: url,
-			data: fd,
-			processData: false,
-    	contentType: false
-		}).done(function(response) {
+		$.post(url, data, function(response) {
 			console.log(response);
 		})
 	}
