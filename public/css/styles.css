@@ -108,3 +108,7 @@ form {
 .image {
   width: 70px;
 }
+
+.btn-small {
+  height: 25px;
+}

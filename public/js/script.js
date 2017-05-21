@@ -44,6 +44,8 @@ $(function() {
 		event.preventDefault();
 		document.getElementById("audio").play();
 	}
+
+
 	function submitWorldlyMessage(event) {
 		event.preventDefault();
 		// console.log(blob);
@@ -62,3 +64,14 @@ $(function() {
 		})
 	}
 });
+
+function playOrPauseMessage() {
+		console.log('message triggered')
+		var audio = document.getElementById("sound1");
+		if (audio.paused) {
+			audio.play();
+		}
+		else {
+			audio.pause();
+		}
+	}

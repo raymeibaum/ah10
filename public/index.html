@@ -29,7 +29,6 @@
     </nav>
 
     <div class="container" id="container">
-
         <div class="carousel slide" data-ride="carousel" id="myCarousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -417,19 +416,20 @@
 		</audio>
 		</div>
 
-
 <!-- Cards section -->
 <div class='messages'>
 <div ng-controller="MessagesController as messages">
 	<h3>Browse {{messages.messages.length}} people's stories</h3>
-		<div class='card-area col-md-4' ng-repeat="message in messages.messages">
+	<br>
+		<div class='card-area col-md-3' ng-repeat="message in messages.messages">
 			<div class='card'>
-			<img class='image' src="https://cdn0.iconfinder.com/data/icons/users-2/512/e35-512.png">
+			<img onclick="playOrPauseMessage()" class='image' src="https://cdn0.iconfinder.com/data/icons/users-2/512/e35-512.png">
 			<br>
 			<br>
 			Country: {{message.country}}
 			<br>
 			Language: {{message.language}}
+			<audio id='sound1' src='https://s3.amazonaws.com/worldlymessage/9mJbcgtsn0M0_128.mp3' preload='auto'></audio>
 			</div>
 	</div>
 </div>
