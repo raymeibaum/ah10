@@ -108,3 +108,7 @@ form {
 .image {
   width: 70px;
 }
+
+#post-success {
+	margin-top: 20px;
+}
