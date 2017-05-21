@@ -1,6 +1,9 @@
 $(function() {
 	var $startRecord = $('#start'),
-			$playButton = $('#play');
+			$playButton = $('#play'),
+			$form = $('form');
+
+	var messageUrl;
 
 	navigator.mediaDevices.getUserMedia({audio: true}).then(function(stream) {
 		var chunks = [];
@@ -11,9 +14,11 @@ $(function() {
 			if (recorder.state == 'inactive') {
 				const blob = new Blob(chunks, {type: 'audio/webm'});
 				messageUrl = URL.createObjectURL(blob);
+				console.log(messageUrl);
 				updateAudioElement(messageUrl);
 				$playButton.attr("disabled", false);
 				$playButton.on('click', playAudio);
+				$form.on('submit', submitWorldlyMessage);
 			}
 		}
 		$startRecord.on('mousedown mouseup', function(e) {
@@ -37,4 +42,7 @@ function updateAudioElement(blobUrl) {
 function playAudio(event) {
 	event.preventDefault();
 	document.getElementById("audio").play();
+}
+function submitWorldlyMessage(event) {
+	event.preventDefault();
 }
